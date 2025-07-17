@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
 import { X, Calendar, FileText, Target } from 'lucide-react';
-import { Project } from '../../types';
 
-interface CreateProjectModalProps {
-  onClose: () => void;
-  onSubmit: (project: Omit<Project, 'id' | 'created_at' | 'updated_at' | 'owner_id' | 'progress'>) => void;
-}
-
-const CreateProjectModal: React.FC<CreateProjectModalProps> = ({ onClose, onSubmit }) => {
+const CreateProjectModal = ({ onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    status: 'planning' as Project['status'],
+    status: 'planning',
     due_date: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value

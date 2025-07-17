@@ -1,9 +1,8 @@
 import React from 'react';
 import { MoreVertical, Calendar, Users } from 'lucide-react';
-import { Project } from '../../types';
 
-const RecentProjects: React.FC = () => {
-  const recentProjects: Project[] = [
+const RecentProjects = () => {
+  const recentProjects = [
     {
       id: '1',
       name: 'Website Redesign',
@@ -39,7 +38,7 @@ const RecentProjects: React.FC = () => {
     }
   ];
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case 'active': return 'bg-green-100 text-green-800';
       case 'planning': return 'bg-blue-100 text-blue-800';
@@ -77,7 +76,7 @@ const RecentProjects: React.FC = () => {
             <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
               <div className="flex items-center">
                 <Calendar className="w-4 h-4 mr-1" />
-                Due: {new Date(project.due_date!).toLocaleDateString()}
+                Due: {new Date(project.due_date).toLocaleDateString()}
               </div>
               <div className="flex items-center">
                 <Users className="w-4 h-4 mr-1" />

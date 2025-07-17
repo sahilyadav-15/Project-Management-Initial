@@ -1,15 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User } from '../types';
 
-interface AuthContextType {
-  user: User | null;
-  loading: boolean;
-  signIn: (email: string, password: string) => Promise<void>;
-  signUp: (email: string, password: string, fullName: string) => Promise<void>;
-  signOut: () => void;
-}
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -19,8 +10,8 @@ export const useAuth = () => {
   return context;
 };
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,9 +27,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     checkUser();
   }, []);
 
-  const signIn = async (email: string, password: string) => {
+  const signIn = async (email, password) => {
     // Simulate authentication
-    const mockUser: User = {
+    const mockUser = {
       id: '1',
       email,
       full_name: 'John Doe',
@@ -49,9 +40,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('user', JSON.stringify(mockUser));
   };
 
-  const signUp = async (email: string, password: string, fullName: string) => {
+  const signUp = async (email, password, fullName) => {
     // Simulate user creation
-    const mockUser: User = {
+    const mockUser = {
       id: '1',
       email,
       full_name: fullName,

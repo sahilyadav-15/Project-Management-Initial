@@ -4,35 +4,35 @@ import StatsCard from './StatsCard';
 import RecentProjects from './RecentProjects';
 import TasksOverview from './TasksOverview';
 
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
   const stats = [
     {
       title: 'Total Projects',
       value: 12,
       icon: FolderOpen,
       color: 'bg-gradient-to-r from-blue-500 to-blue-600',
-      trend: { value: 12, direction: 'up' as const }
+      trend: { value: 12, direction: 'up' }
     },
     {
       title: 'Completed Tasks',
       value: 89,
       icon: CheckCircle,
       color: 'bg-gradient-to-r from-green-500 to-green-600',
-      trend: { value: 8, direction: 'up' as const }
+      trend: { value: 8, direction: 'up' }
     },
     {
       title: 'In Progress',
       value: 24,
       icon: Clock,
       color: 'bg-gradient-to-r from-orange-500 to-orange-600',
-      trend: { value: 3, direction: 'down' as const }
+      trend: { value: 3, direction: 'down' }
     },
     {
       title: 'Team Members',
       value: 8,
       icon: Users,
       color: 'bg-gradient-to-r from-purple-500 to-purple-600',
-      trend: { value: 2, direction: 'up' as const }
+      trend: { value: 2, direction: 'up' }
     }
   ];
 

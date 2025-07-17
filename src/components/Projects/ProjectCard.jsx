@@ -1,14 +1,8 @@
 import React from 'react';
 import { Calendar, Users, MoreVertical } from 'lucide-react';
-import { Project } from '../../types';
 
-interface ProjectCardProps {
-  project: Project;
-  onClick: () => void;
-}
-
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
-  const getStatusColor = (status: string) => {
+const ProjectCard = ({ project, onClick }) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case 'active': return 'bg-green-100 text-green-800';
       case 'planning': return 'bg-blue-100 text-blue-800';

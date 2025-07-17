@@ -1,18 +1,6 @@
 import React from 'react';
-import { DivideIcon as LucideIcon } from 'lucide-react';
 
-interface StatsCardProps {
-  title: string;
-  value: string | number;
-  icon: LucideIcon;
-  color: string;
-  trend?: {
-    value: number;
-    direction: 'up' | 'down';
-  };
-}
-
-const StatsCard: React.FC<StatsCardProps> = ({ title, value, icon: Icon, color, trend }) => {
+const StatsCard = ({ title, value, icon: Icon, color, trend }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
       <div className="flex items-center justify-between">

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Plus, Search, Filter } from 'lucide-react';
-import { Project } from '../../types';
+import { Plus, Search, Filter, FolderOpen } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 import CreateProjectModal from './CreateProjectModal';
 
-const ProjectList: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([
+const ProjectList = () => {
+  const [projects, setProjects] = useState([
     {
       id: '1',
       name: 'Website Redesign',
@@ -63,8 +62,8 @@ const ProjectList: React.FC = () => {
     return matchesSearch && matchesStatus;
   });
 
-  const handleCreateProject = (projectData: Omit<Project, 'id' | 'created_at' | 'updated_at' | 'owner_id' | 'progress'>) => {
-    const newProject: Project = {
+  const handleCreateProject = (projectData) => {
+    const newProject = {
       ...projectData,
       id: Date.now().toString(),
       created_at: new Date().toISOString(),

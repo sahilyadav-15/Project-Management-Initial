@@ -9,12 +9,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
-interface SidebarProps {
-  activeView: string;
-  setActiveView: (view: string) => void;
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ activeView, setActiveView }) => {
+const Sidebar = ({ activeView, setActiveView }) => {
   const { user, signOut } = useAuth();
 
   const menuItems = [

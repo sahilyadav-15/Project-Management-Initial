@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Lock, User } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
-const LoginForm: React.FC = () => {
+const LoginForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -10,7 +10,7 @@ const LoginForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const { signIn, signUp } = useAuth();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 

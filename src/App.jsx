@@ -5,7 +5,7 @@ import Sidebar from './components/Layout/Sidebar';
 import Dashboard from './components/Dashboard/Dashboard';
 import ProjectList from './components/Projects/ProjectList';
 
-const AppContent: React.FC = () => {
+const AppContent = () => {
   const { user, loading } = useAuth();
   const [activeView, setActiveView] = useState('dashboard');
 

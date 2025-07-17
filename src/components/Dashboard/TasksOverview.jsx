@@ -1,9 +1,8 @@
 import React from 'react';
 import { CheckCircle, Clock, AlertCircle, Circle } from 'lucide-react';
-import { Task } from '../../types';
 
-const TasksOverview: React.FC = () => {
-  const tasks: Task[] = [
+const TasksOverview = () => {
+  const tasks = [
     {
       id: '1',
       title: 'Design homepage mockup',
@@ -50,7 +49,7 @@ const TasksOverview: React.FC = () => {
     }
   ];
 
-  const getStatusIcon = (status: string) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case 'completed': return <CheckCircle className="w-5 h-5 text-green-500" />;
       case 'in-progress': return <Clock className="w-5 h-5 text-blue-500" />;
@@ -59,7 +58,7 @@ const TasksOverview: React.FC = () => {
     }
   };
 
-  const getPriorityColor = (priority: string) => {
+  const getPriorityColor = (priority) => {
     switch (priority) {
       case 'urgent': return 'border-l-red-500';
       case 'high': return 'border-l-orange-500';
@@ -110,7 +109,7 @@ const TasksOverview: React.FC = () => {
                 {getStatusIcon(task.status)}
                 <div>
                   <p className="font-medium text-gray-900">{task.title}</p>
-                  <p className="text-sm text-gray-600">Due: {new Date(task.due_date!).toLocaleDateString()}</p>
+                  <p className="text-sm text-gray-600">Due: {new Date(task.due_date).toLocaleDateString()}</p>
                 </div>
               </div>
               <span className="text-xs px-2 py-1 bg-white rounded-full text-gray-600">
